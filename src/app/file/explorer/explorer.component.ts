@@ -24,13 +24,16 @@ export class ExplorerComponent {
 
         // 测试用
         this.fileService.addFile("操作系统作业", "/", 32, 0);
-        this.fileService.addFile("课程设计.zip", "/操作系统作业", 0, 1024*100);
+        this.fileService.addFile("课程设计.zip", "/操作系统作业", 0, 1024*1024);
         this.fileService.addFile("备份文件.rar", "/", 0, 1024*1024);
         this.fileService.addFile("复习资料", "/", 32, 0);
     }
 
     onSelectFile(file: FileControlBlock) {
         this.selectFile = file;
+        if(this.selectFile==null) {
+            console.log("gg");
+        }
     }
 
     openAddFileDialog() {

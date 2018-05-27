@@ -18,13 +18,15 @@ export class DirectoryTreeComponent {
     constructor() { }
 
     onSelectFile(file: FileControlBlock, $event) {
-        if(DirectoryTreeComponent.selectFile === file) return;
+        if(DirectoryTreeComponent.selectFile != file) {
+            console.log(file);
+        }
         DirectoryTreeComponent.selectFile = file;
         this.onSelect.emit(file);
-        $event.stopPropagation();
-        console.log(file);
+        !!$event && $event.stopPropagation();
     }
     cancalSelectFile() {
+        if (this.that.selectFile == null) return;
         this.that.selectFile = null;
         this.onSelect.emit(null);
     }

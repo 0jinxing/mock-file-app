@@ -80,14 +80,19 @@ export class DiskStatusComponent {
     }
 
     get background() {
-
-
-
         if (this.rangeInfo.length == 0) return "#fff";
         let fullColor = "#82A6F5";
         let emptyColor = "#FFFFFF";
         let rangeColorInfo: Array<any> = new Array();
         let preRange = null;
+        let firstBlock = Math.max(this.rangeInfo[0][0], this.rangeInfo[0][1]);
+        if (firstBlock < Environment.diskBlockSize - 1) {
+            let emptyColorRange = {
+                color: emptyColor,
+                percent: Math.abs((Environment.diskBlockSize - firstBlock - 1) / Environment.diskBlockTotal) * 100
+            }
+            rangeColorInfo.push(emptyColorRange);
+        }
         this.rangeInfo.forEach((r) => {
             if (preRange) {
                 let emptyColorRange = {
