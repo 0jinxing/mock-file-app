@@ -1,0 +1,11 @@
+.panel {
+    padding: 24px;
+    height: 100%;
+}
+#disk_info {
+    height: 40%;
+    max-height: 80px;
+    border-radius: 4px;
+    background: red;
+    border: 1px solid #e1e1e1;
+}

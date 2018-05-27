@@ -1,0 +1,57 @@
+ul.tree{
+    list-style: none;
+    overflow: hidden;
+}
+li.file, li.folder {
+    font-size: 18px;
+    line-height: 20px;
+    position: relative;
+    margin-top: 16px;
+    /* display: inline-block; */
+}
+.file-item {
+    cursor: pointer;
+    display: inline-block;
+    /* overflow: scroll; */
+}
+li .file-item:hover, li .file-item:hover {
+    background-color: rgba(30, 153, 137, 0.507);
+    color: white;
+    border-radius: 4px;
+    padding-left: 1px;
+}
+li .selected {
+    background-color: rgba(30, 153, 137, 0.507);
+    color: white;
+    border-radius: 4px;
+    padding-left: 1px;
+}
+li.file span, li.folder span {
+    white-space:nowrap;
+    /* text-overflow:ellipsis; */
+    /* overflow:hidden; */
+}
+li img.icon {
+    float: left;
+}
+li.folder.open::before {
+    display: block;
+    width: 18px;
+    height: 18px;
+    content: "";
+    background-image: url(/assets/open.png);
+    background-size: 18px;
+    background-repeat: no-repeat;
+    background-clip: border-box;
+    float: left;
+}
+.empty-tip {
+    color: #333;
+    /* font-size: 16px; */
+    font-weight: lighter;
+    padding-left: 2em;
+    font-style: italic;
+}
+.sub-tree {
+    margin-top: 8px;
+}

@@ -1,0 +1,14 @@
+<ul class="tree">
+    <li class="{{util.getFileType(file)}}" *ngFor="let file of current.sub">
+        <span class="file-item" (click)="onSelectFile(file)" [class.selected]="file===that.selectFile">
+            <img class="icon" src="{{util.getFileImageUrl(file)}}" alt="" width="22px">
+            <span>{{file.name}}</span>
+        </span>
+        <div class="sub-tree">
+            <div class="empty-tip" [hidden]="!(file.sub.length===0&&file.attribute===32)">
+                <span>空</span>
+            </div>
+            <app-directory-tree *ngIf="file.attribute==32" [current]="file" (onSelect)="onSelectFile($event)"></app-directory-tree>
+        </div>
+    </li>
+</ul>

@@ -1,0 +1,63 @@
+<div class="row">
+    <div class="wrapper col-6">
+        <div class="nav">
+            <span class="nav-item" (click)="openAddFileDialog()">ADD FILE</span>
+            <span class="nav-item" (click)="openAddFolderDialog()">ADD FOLDER</span>
+            <span class="nav-item" (click)="deleteSelectFile()">DELETE</span>
+            <span class="nav-item" (click)="format()">FORMAT</span>
+        </div>
+        <div class="file-tree">
+            <app-directory-tree [current]="fileService.root" (onSelect)="onSelectFile($event)">
+            </app-directory-tree>
+        </div>
+    </div>
+
+    <div class="wrapper col-4 ml-2" id="disk">
+        <div class="nav">
+            <p>盘块使用情况</p>
+        </div>
+        <app-disk-status></app-disk-status>
+    </div>
+</div>
+
+<div class="mask" *ngIf="isOpenAddFileDialog" id="add_file_dialog" (click)="closeAddFileDialog()">
+    <div class="dialog-wrapper">
+        <div class="dialog add-file-dialog container" (click)="$event.stopPropagation()">
+            <span class="dialog-close" (click)="closeAddFileDialog()">&times;</span>
+            <form>
+                <h4 class="page-header">新建文件</h4>
+                <div class="form-group">
+                    <label for="file_name">文件名</label>
+                    <input type="text" class="form-control" placeholder="输入文件名" name="file_name" id="file_name" #fileName>
+                </div>
+                <div class="form-group">
+                    <label for="file_size">文件大小</label>
+                    <input type="number" class="form-control" id="file_size" name="file_size" placeholder="输入创建的文件大小" #fileSize>
+                </div>
+                <button type="button" class="btn btn-info" (click)="createFile(fileName.value, fileSize.value)">创建</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="mask" *ngIf="isOpenAddFolderDialog" id="add_folder_dialog" (click)="closeAddFolderDialog()">
+    <div class="dialog-wrapper">
+        <div class="dialog container" (click)="$event.stopPropagation()">
+            <span class="dialog-close" (click)="closeAddFolderDialog()">&times;</span>
+            <form>
+                <h4 class="page-header">新建文件夹</h4>
+                <div class="form-group">
+                    <label for="folder_name">文件夹名</label>
+                    <input type="text" class="form-control" placeholder="输入文件名" name="folder_name" id="folder_name" #folderName>
+                </div>
+                <button type="button" class="btn btn-info" (click)="createFile(folderName.value, 0, 32)">创建</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="mask mask-hidden" *ngIf="hasMsg">
+    <div class="toast-wrapper">
+        <div class="toast">{{msg}}</div>
+    </div>
+</div>

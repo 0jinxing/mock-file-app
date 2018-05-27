@@ -1,0 +1,98 @@
+.page-header {
+    /* margin-top: 12px; */
+    margin-bottom: 24px;
+    padding-bottom: 4px;
+    border-bottom: 1px solid #eee;
+    color: #333;
+    font-weight: lighter;
+}
+
+.wrapper {
+    padding: 0px;
+    margin: 0px;
+    background-color: #eee;
+    border-radius: 6px;
+    overflow: auto;
+}
+.nav {
+    background: #82A6F5;
+    color: #FFF;
+    height: 48px;
+    line-height: 48px;
+    justify-content: flex-end;
+    padding: 0 14px;
+}
+.nav-item {
+    margin-right: 14px;
+    text-decoration: underline;
+    cursor: pointer;
+}
+.nav-item:hover {
+    line-height: 40px;
+    font-weight: bold;
+}
+.file-tree {
+    padding: 16px;
+}
+.mask {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+.mask.mask-hidden {
+    z-index: -1;
+    background-color: rgba(255, 255, 255, 0);
+}
+.toast-wrapper {
+    display: flex;
+    justify-content: flex-start;
+}
+.toast {
+    position: relative;
+    margin-top: 80px;
+    /* margin-left: 20px; */
+    padding: 12px;
+    /* width: 600px; */
+    background-color: rgba(0, 0, 0, 0.4);
+    color: #FFF;
+    border-radius: 0 4px 4px 0;
+}
+.dialog-wrapper {
+    display: flex;
+    justify-content: center;
+}
+.dialog {
+    position: relative;
+    margin-top: 200px;
+    padding: 48px;
+    width: 600px;
+    background-color: #FFF;
+    border-radius: 4px;
+}
+.dialog-close {
+    position: absolute;
+    display: block;
+    width: 24px;
+    height: 24px;
+    line-height: 20px;
+    text-align: center;
+    padding: 0;
+    top: 0;
+    right: 0;
+    background: #FFF;
+    font-size: 24px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+.dialog-close:hover {
+    background: rgb(228, 88, 88);
+    color: #FFF;
+}
+
+#disk {
+    height: 200px;
+    overflow: hidden;
+}
