@@ -17,7 +17,7 @@ export class FileManagerService {
 
     // 空闲盘块栈(成组链法)
     // 因为数值本身可以进行pop和push操作,所以就不用存一个栈顶指针了
-    freeDiskBlockTableStack: Array<Array<number>>;
+    freeDiskBlockTableStack: Array<Array<number>>;  // 空闲盘块表栈
     memoryFreeDiskBlockTable: Array<number>;  // 放在内存中的空闲盘块表,是上面空闲盘块栈数组中的一项
     freeDiskBlockTotal: number; // 可用的盘块数
 

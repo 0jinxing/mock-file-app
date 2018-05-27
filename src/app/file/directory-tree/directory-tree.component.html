@@ -1,6 +1,6 @@
-<ul class="tree">
+<ul class="tree" (click)="cancalSelectFile()">
     <li class="{{util.getFileType(file)}}" *ngFor="let file of current.sub">
-        <span class="file-item" (click)="onSelectFile(file)" [class.selected]="file===that.selectFile">
+        <span class="file-item" (click)="onSelectFile(file, $event)" [class.selected]="file===that.selectFile">
             <img class="icon" src="{{util.getFileImageUrl(file)}}" alt="" width="22px">
             <span>{{file.name}}</span>
         </span>
